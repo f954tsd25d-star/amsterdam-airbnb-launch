@@ -362,7 +362,7 @@ function Index() {
               size="lg"
               variant="outline"
               asChild
-              className="mt-8 border-cream text-cream hover:bg-cream/10"
+              className="mt-8 border-cream bg-transparent text-cream hover:bg-cream/10 hover:text-cream"
             >
               <a href="#book">Book your €149 consultation</a>
             </Button>
