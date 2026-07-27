@@ -11,9 +11,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Check, MapPin, FileCheck2, Receipt, Camera, Building2, Coffee, Heart } from "lucide-react";
+import { Check, MapPin, FileCheck2, Receipt, Camera, Building2, Coffee, Heart, Sparkles } from "lucide-react";
 import livingRoom from "@/assets/living-room.jpg.asset.json";
 import bedroom from "@/assets/bedroom.jpg.asset.json";
+import { HostingQuiz } from "@/components/HostingQuiz";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -109,6 +110,7 @@ const faqs = [
 function Index() {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [quizOpen, setQuizOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -123,11 +125,19 @@ function Index() {
           <a href="/" className="font-heading text-xl font-bold text-foreground">
             Hosting in Amsterdam
           </a>
-          <Button asChild>
-            <a href="#book">Book a call</a>
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="ghost" onClick={() => setQuizOpen(true)} className="hidden sm:inline-flex">
+              <Sparkles className="mr-1.5 h-4 w-4" />
+              Check if you can host
+            </Button>
+            <Button asChild>
+              <a href="#book">Book a call</a>
+            </Button>
+          </div>
         </div>
       </header>
+
+      <HostingQuiz open={quizOpen} onOpenChange={setQuizOpen} />
 
       <main>
         {/* Hero — split screen */}
@@ -146,11 +156,12 @@ function Index() {
               and listing together — no jargon, no pressure.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button size="lg" asChild className="text-base">
-                <a href="#book">Book a call — €149</a>
+              <Button size="lg" onClick={() => setQuizOpen(true)} className="text-base">
+                <Sparkles className="mr-1.5 h-4 w-4" />
+                Check if you can host
               </Button>
               <Button size="lg" variant="outline" asChild className="text-base">
-                <a href="#about">Meet Alessia</a>
+                <a href="#book">Book a call — €149</a>
               </Button>
             </div>
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
