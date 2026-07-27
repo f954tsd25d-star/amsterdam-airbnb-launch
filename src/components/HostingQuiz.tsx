@@ -311,66 +311,6 @@ export function HostingQuiz({ open, onOpenChange }: Props) {
             </div>
           )}
 
-          {phase === "form" && (
-            <div>
-              <h3 className="font-heading text-xl font-semibold text-foreground sm:text-2xl">
-                Where should I send your result?
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Pop in your details and I'll show your personalised checklist right after.
-                Your answers are already attached — no need to repeat yourself.
-              </p>
-
-              {tallyConfigured ? (
-                <div className="mt-6 overflow-hidden rounded-xl border border-border/60 bg-background">
-                  <iframe
-                    key={tallyUrl}
-                    src={tallyUrl}
-                    title="Contact form"
-                    loading="lazy"
-                    className="h-[520px] w-full"
-                  />
-                </div>
-              ) : (
-                <div className="mt-6 space-y-4 rounded-xl border border-dashed border-border bg-muted/40 p-6 text-sm">
-                  <p className="font-semibold text-foreground">
-                    Tally form not configured yet.
-                  </p>
-                  <p className="text-muted-foreground">
-                    Create a free form at{" "}
-                    <a
-                      href="https://tally.so"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="underline"
-                    >
-                      tally.so
-                    </a>{" "}
-                    with fields for First name, Email and Phone, add hidden fields named{" "}
-                    <code className="rounded bg-background px-1">result</code>,{" "}
-                    <code className="rounded bg-background px-1">ownership</code>,{" "}
-                    <code className="rounded bg-background px-1">hosting_type</code> (etc.),
-                    then paste the form ID into{" "}
-                    <code className="rounded bg-background px-1">HostingQuiz.tsx</code>.
-                  </p>
-                  <Button onClick={() => setPhase("result")} className="w-full">
-                    Skip and see my result
-                  </Button>
-                </div>
-              )}
-
-              {tallyConfigured && (
-                <button
-                  type="button"
-                  onClick={() => setPhase("result")}
-                  className="mt-3 text-xs text-muted-foreground underline underline-offset-2 hover:text-foreground"
-                >
-                  Skip and see my result
-                </button>
-              )}
-            </div>
-          )}
-
           {phase === "result" && (
             <div>
               <div className={`rounded-xl px-5 py-4 ${toneClasses}`}>
@@ -408,26 +348,34 @@ export function HostingQuiz({ open, onOpenChange }: Props) {
                 </ul>
               </div>
 
-              <div className="mt-8 rounded-xl bg-secondary/40 p-5 text-center">
-                <p className="font-heading text-lg font-semibold text-foreground">
+              <div className="mt-8 rounded-xl bg-secondary/40 p-5">
+                <p className="font-heading text-lg font-semibold text-foreground text-center">
                   Want help with the next steps?
                 </p>
-                <p className="mt-1 text-sm text-muted-foreground">
+                <p className="mt-1 text-sm text-muted-foreground text-center">
                   Book a friendly 1-hour call — we'll go through your checklist together.
                 </p>
-                <Button asChild size="lg" className="mt-4 w-full sm:w-auto">
-                  <a href={CALENDLY_URL} target="_blank" rel="noreferrer noopener">
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Book a consultation
+                <div className="mt-4 overflow-hidden rounded-xl border border-border/60 bg-background">
+                  <iframe
+                    src={`${CALENDLY_URL}?hide_gdpr_banner=1`}
+                    title="Book a call with Alessia"
+                    loading="lazy"
+                    className="h-[640px] w-full"
+                  />
+                </div>
+                <p className="mt-3 text-center text-xs text-muted-foreground">
+                  Trouble with the embed?{" "}
+                  <a
+                    href={CALENDLY_URL}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="underline underline-offset-2 hover:text-foreground"
+                  >
+                    Open Calendly in a new tab
+                    <ExternalLink className="ml-1 inline h-3 w-3" />
                   </a>
-                </Button>
-              </div>
-
-              {!formSubmitted && tallyConfigured && (
-                <p className="mt-4 text-center text-xs text-muted-foreground">
-                  Prefer to send your details? Go back one step to fill in the form.
                 </p>
-              )}
+              </div>
             </div>
           )}
         </div>
