@@ -457,8 +457,8 @@ function Index() {
               <MapPin className="inline h-3.5 w-3.5" /> by Alessia.
             </p>
             <div className="flex items-center gap-6 text-sm text-muted-foreground">
-              <a href="mailto:hello@example.com" className="hover:text-foreground">
-                hello@example.com
+              <a href="mailto:alessia@idkelab.com" className="hover:text-foreground">
+                alessia@idkelab.com
               </a>
             </div>
           </div>
