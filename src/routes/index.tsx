@@ -296,50 +296,38 @@ function Index() {
           </div>
         </section>
 
-        {/* Pricing + Booking */}
+        {/* Booking + Inquiries */}
         <section id="book" className="py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {/* Pricing card */}
-              <Card className="border-border/60 bg-card">
-                <CardHeader>
-                  <CardTitle className="font-heading text-2xl">1-hour consultation</CardTitle>
-                  <CardDescription className="text-base">
-                    A relaxed video call where we go through your home, your questions, and
-                    exactly what to do next.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-heading text-5xl font-bold text-foreground">€149</span>
-                    <span className="text-muted-foreground">one-time</span>
-                  </div>
-                  <ul className="space-y-3 text-foreground">
-                    {[
-                      "60-minute private video call",
-                      "Permit and registration walkthrough",
-                      "Plain-language tax overview",
-                      "Listing feedback and pricing tips",
-                      "Step-by-step action checklist",
-                      "7 days of email follow-up",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <Check className="mt-0.5 h-5 w-5 shrink-0 text-sage" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                Book a call or send a question
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                Pick a time that works below, or drop me a note if you'd like to chat first.
+              </p>
+            </div>
 
-              {/* Booking form */}
-              <div className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm sm:p-8">
+            <div className="mt-12 grid gap-10 lg:grid-cols-5 lg:items-start">
+              {/* Calendly embed */}
+              <div className="lg:col-span-3">
+                <div className="overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
+                  <iframe
+                    src="https://calendly.com/idke/30min?hide_gdpr_banner=1"
+                    title="Book a call with Alessia"
+                    loading="lazy"
+                    className="h-[720px] w-full"
+                  />
+                </div>
+              </div>
+
+              {/* Inquiries form */}
+              <div className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm sm:p-8 lg:col-span-2">
                 <h3 className="font-heading text-2xl font-bold text-foreground">
-                  Say hi and book a time
+                  Have a question first?
                 </h3>
                 <p className="mt-2 text-muted-foreground">
-                  Drop me a quick note and I'll reply within 24 hours with some available
-                  times. No payment yet — we'll sort that once we've picked a slot.
+                  Send me a quick note and I'll reply within 24 hours. No pressure to book.
                 </p>
                 {submitted ? (
                   <div className="mt-8 rounded-xl bg-secondary/40 p-6 text-center">
@@ -350,16 +338,21 @@ function Index() {
                       Got it — thank you!
                     </h4>
                     <p className="mt-2 text-muted-foreground">
-                      Thanks, {formData.name || "there"}. I'll be in touch within 24 hours with
-                      some times that could work.
+                      Thanks, {formData.name || "there"}. I'll be in touch within 24 hours.
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+                  <form
+                    onSubmit={handleSubmit}
+                    action="https://formsubmit.co/alessia@idkelab.com"
+                    method="POST"
+                    className="mt-8 space-y-5"
+                  >
                     <div className="space-y-2">
                       <Label htmlFor="name">Your name</Label>
                       <Input
                         id="name"
+                        name="name"
                         type="text"
                         required
                         placeholder="Alex"
@@ -371,6 +364,7 @@ function Index() {
                       <Label htmlFor="email">Email</Label>
                       <Input
                         id="email"
+                        name="email"
                         type="email"
                         required
                         placeholder="you@example.com"
@@ -382,6 +376,7 @@ function Index() {
                       <Label htmlFor="message">What's on your mind?</Label>
                       <Textarea
                         id="message"
+                        name="message"
                         rows={4}
                         placeholder="A sentence or two about your home and what you're hoping to figure out."
                         value={formData.message}
@@ -393,8 +388,8 @@ function Index() {
                     </Button>
                     <p className="text-center text-xs text-muted-foreground">
                       Prefer email? Write me at{" "}
-                      <a href="mailto:hello@example.com" className="underline">
-                        hello@example.com
+                      <a href="mailto:alessia@idkelab.com" className="underline">
+                        alessia@idkelab.com
                       </a>
                       .
                     </p>
