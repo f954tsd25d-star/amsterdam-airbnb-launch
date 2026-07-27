@@ -156,11 +156,12 @@ function Index() {
               and listing together — no jargon, no pressure.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button size="lg" asChild className="text-base">
-                <a href="#book">Book a call — €149</a>
+              <Button size="lg" onClick={() => setQuizOpen(true)} className="text-base">
+                <Sparkles className="mr-1.5 h-4 w-4" />
+                Check if you can host
               </Button>
               <Button size="lg" variant="outline" asChild className="text-base">
-                <a href="#about">Meet Alessia</a>
+                <a href="#book">Book a call — €149</a>
               </Button>
             </div>
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
