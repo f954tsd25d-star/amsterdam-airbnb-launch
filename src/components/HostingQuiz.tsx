@@ -2,18 +2,9 @@ import { useMemo, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { Check, ArrowLeft, ArrowRight, ExternalLink, Calendar, Sparkles } from "lucide-react";
+import { Check, ArrowLeft, ArrowRight, ExternalLink, Sparkles } from "lucide-react";
 
-/**
- * Configure these two constants. The quiz works entirely in the browser.
- *  - TALLY_FORM_ID: from your Tally form URL (https://tally.so/r/<ID>).
- *      Create hidden fields in Tally named: result, ownership, permission,
- *      hosting_type, bnb_checked, vve_checked, insurance_checked.
- *      Enable "Google Sheets" integration in Tally to auto-save responses.
- *  - CALENDLY_URL: your booking link shown after submission.
- */
-const TALLY_FORM_ID: string = "REPLACE_ME"; // e.g. "wAbCdE"
-const CALENDLY_URL: string = "https://calendly.com/your-handle/consultation";
+const CALENDLY_URL = "https://calendly.com/idke/30min";
 
 const BNB_MAP_URL =
   "https://kaart.amsterdam.nl/vergunningen-bed-breakfast?pk_vid=928740301dba89d71784542844c17ca6";
