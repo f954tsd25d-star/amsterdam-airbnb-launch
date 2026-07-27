@@ -442,7 +442,7 @@ function Index() {
               asChild
               className="mt-8 border-cream bg-transparent text-cream hover:bg-cream/10 hover:text-cream"
             >
-              <a href="#book">Book your €149 call</a>
+              <a href="#book">Book your call</a>
             </Button>
           </div>
         </section>
