@@ -2,18 +2,9 @@ import { useMemo, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { Check, ArrowLeft, ArrowRight, ExternalLink, Calendar, Sparkles } from "lucide-react";
+import { Check, ArrowLeft, ArrowRight, ExternalLink, Sparkles } from "lucide-react";
 
-/**
- * Configure these two constants. The quiz works entirely in the browser.
- *  - TALLY_FORM_ID: from your Tally form URL (https://tally.so/r/<ID>).
- *      Create hidden fields in Tally named: result, ownership, permission,
- *      hosting_type, bnb_checked, vve_checked, insurance_checked.
- *      Enable "Google Sheets" integration in Tally to auto-save responses.
- *  - CALENDLY_URL: your booking link shown after submission.
- */
-const TALLY_FORM_ID: string = "REPLACE_ME"; // e.g. "wAbCdE"
-const CALENDLY_URL: string = "https://calendly.com/your-handle/consultation";
+const CALENDLY_URL = "https://calendly.com/idke/30min";
 
 const BNB_MAP_URL =
   "https://kaart.amsterdam.nl/vergunningen-bed-breakfast?pk_vid=928740301dba89d71784542844c17ca6";
@@ -187,60 +178,25 @@ function computeResult(answers: Answers): {
   };
 }
 
-function buildTallyUrl(answers: Answers, resultHeadline: string): string {
-  const params = new URLSearchParams({
-    result: resultHeadline,
-    ownership: answers.ownership ?? "",
-    permission: answers.permission ?? "",
-    mortgage: answers.mortgage ?? "",
-    hosting_type: answers.hosting_type ?? "",
-    bnb_checked: answers.bnb_checked ?? "",
-    vve_checked: answers.vve_checked ?? "",
-    insurance_checked: answers.insurance_checked ?? "",
-    transparentBackground: "1",
-    hideTitle: "1",
-  });
-  return `https://tally.so/embed/${TALLY_FORM_ID}?${params.toString()}`;
-}
-
 type Props = { open: boolean; onOpenChange: (open: boolean) => void };
 
 export function HostingQuiz({ open, onOpenChange }: Props) {
   const [answers, setAnswers] = useState<Answers>({});
   const [stepIndex, setStepIndex] = useState(0);
-  const [phase, setPhase] = useState<"quiz" | "form" | "result">("quiz");
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [phase, setPhase] = useState<"quiz" | "result">("quiz");
 
   const steps = useMemo(() => buildSteps(answers), [answers]);
   const currentStep = steps[stepIndex];
   const result = useMemo(() => computeResult(answers), [answers]);
-  const tallyUrl = useMemo(() => buildTallyUrl(answers, result.headline), [answers, result.headline]);
-  const tallyConfigured = TALLY_FORM_ID !== "REPLACE_ME" && TALLY_FORM_ID.length > 0;
-
-  // Listen for Tally submit postMessage
-  useMemo(() => {
-    if (typeof window === "undefined") return;
-    const handler = (event: MessageEvent) => {
-      if (typeof event.data !== "string") return;
-      if (event.data.includes("Tally.FormSubmitted")) {
-        setFormSubmitted(true);
-        setPhase("result");
-      }
-    };
-    window.addEventListener("message", handler);
-    return () => window.removeEventListener("message", handler);
-  }, []);
 
   const reset = () => {
     setAnswers({});
     setStepIndex(0);
     setPhase("quiz");
-    setFormSubmitted(false);
   };
 
   const handleOpenChange = (next: boolean) => {
     if (!next) {
-      // small delay so users don't see reset flash
       setTimeout(reset, 200);
     }
     onOpenChange(next);
@@ -251,7 +207,7 @@ export function HostingQuiz({ open, onOpenChange }: Props) {
     setAnswers(nextAnswers);
     const nextSteps = buildSteps(nextAnswers);
     if (stepIndex + 1 >= nextSteps.length) {
-      setPhase("form");
+      setPhase("result");
     } else {
       setStepIndex(stepIndex + 1);
     }
@@ -259,10 +215,6 @@ export function HostingQuiz({ open, onOpenChange }: Props) {
 
   const goBack = () => {
     if (phase === "result") {
-      setPhase("form");
-      return;
-    }
-    if (phase === "form") {
       setPhase("quiz");
       setStepIndex(steps.length - 1);
       return;
@@ -271,11 +223,7 @@ export function HostingQuiz({ open, onOpenChange }: Props) {
   };
 
   const progress =
-    phase === "quiz"
-      ? ((stepIndex + 1) / (steps.length + 1)) * 100
-      : phase === "form"
-        ? 90
-        : 100;
+    phase === "quiz" ? ((stepIndex + 1) / (steps.length + 1)) * 100 : 100;
 
   const toneClasses =
     result.tone === "green"
@@ -363,66 +311,6 @@ export function HostingQuiz({ open, onOpenChange }: Props) {
             </div>
           )}
 
-          {phase === "form" && (
-            <div>
-              <h3 className="font-heading text-xl font-semibold text-foreground sm:text-2xl">
-                Where should I send your result?
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Pop in your details and I'll show your personalised checklist right after.
-                Your answers are already attached — no need to repeat yourself.
-              </p>
-
-              {tallyConfigured ? (
-                <div className="mt-6 overflow-hidden rounded-xl border border-border/60 bg-background">
-                  <iframe
-                    key={tallyUrl}
-                    src={tallyUrl}
-                    title="Contact form"
-                    loading="lazy"
-                    className="h-[520px] w-full"
-                  />
-                </div>
-              ) : (
-                <div className="mt-6 space-y-4 rounded-xl border border-dashed border-border bg-muted/40 p-6 text-sm">
-                  <p className="font-semibold text-foreground">
-                    Tally form not configured yet.
-                  </p>
-                  <p className="text-muted-foreground">
-                    Create a free form at{" "}
-                    <a
-                      href="https://tally.so"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="underline"
-                    >
-                      tally.so
-                    </a>{" "}
-                    with fields for First name, Email and Phone, add hidden fields named{" "}
-                    <code className="rounded bg-background px-1">result</code>,{" "}
-                    <code className="rounded bg-background px-1">ownership</code>,{" "}
-                    <code className="rounded bg-background px-1">hosting_type</code> (etc.),
-                    then paste the form ID into{" "}
-                    <code className="rounded bg-background px-1">HostingQuiz.tsx</code>.
-                  </p>
-                  <Button onClick={() => setPhase("result")} className="w-full">
-                    Skip and see my result
-                  </Button>
-                </div>
-              )}
-
-              {tallyConfigured && (
-                <button
-                  type="button"
-                  onClick={() => setPhase("result")}
-                  className="mt-3 text-xs text-muted-foreground underline underline-offset-2 hover:text-foreground"
-                >
-                  Skip and see my result
-                </button>
-              )}
-            </div>
-          )}
-
           {phase === "result" && (
             <div>
               <div className={`rounded-xl px-5 py-4 ${toneClasses}`}>
@@ -460,26 +348,34 @@ export function HostingQuiz({ open, onOpenChange }: Props) {
                 </ul>
               </div>
 
-              <div className="mt-8 rounded-xl bg-secondary/40 p-5 text-center">
-                <p className="font-heading text-lg font-semibold text-foreground">
+              <div className="mt-8 rounded-xl bg-secondary/40 p-5">
+                <p className="font-heading text-lg font-semibold text-foreground text-center">
                   Want help with the next steps?
                 </p>
-                <p className="mt-1 text-sm text-muted-foreground">
+                <p className="mt-1 text-sm text-muted-foreground text-center">
                   Book a friendly 1-hour call — we'll go through your checklist together.
                 </p>
-                <Button asChild size="lg" className="mt-4 w-full sm:w-auto">
-                  <a href={CALENDLY_URL} target="_blank" rel="noreferrer noopener">
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Book a consultation
+                <div className="mt-4 overflow-hidden rounded-xl border border-border/60 bg-background">
+                  <iframe
+                    src={`${CALENDLY_URL}?hide_gdpr_banner=1`}
+                    title="Book a call with Alessia"
+                    loading="lazy"
+                    className="h-[640px] w-full"
+                  />
+                </div>
+                <p className="mt-3 text-center text-xs text-muted-foreground">
+                  Trouble with the embed?{" "}
+                  <a
+                    href={CALENDLY_URL}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="underline underline-offset-2 hover:text-foreground"
+                  >
+                    Open Calendly in a new tab
+                    <ExternalLink className="ml-1 inline h-3 w-3" />
                   </a>
-                </Button>
-              </div>
-
-              {!formSubmitted && tallyConfigured && (
-                <p className="mt-4 text-center text-xs text-muted-foreground">
-                  Prefer to send your details? Go back one step to fill in the form.
                 </p>
-              )}
+              </div>
             </div>
           )}
         </div>
