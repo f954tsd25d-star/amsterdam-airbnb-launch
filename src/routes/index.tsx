@@ -11,9 +11,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Check, MapPin, FileCheck2, Receipt, Camera, Building2, Coffee, Heart } from "lucide-react";
+import { Check, MapPin, FileCheck2, Receipt, Camera, Building2, Coffee, Heart, Sparkles } from "lucide-react";
 import livingRoom from "@/assets/living-room.jpg.asset.json";
 import bedroom from "@/assets/bedroom.jpg.asset.json";
+import { HostingQuiz } from "@/components/HostingQuiz";
 
 export const Route = createFileRoute("/")({
   component: Index,
