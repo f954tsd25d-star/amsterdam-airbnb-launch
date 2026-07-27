@@ -110,6 +110,7 @@ const faqs = [
 function Index() {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [quizOpen, setQuizOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
