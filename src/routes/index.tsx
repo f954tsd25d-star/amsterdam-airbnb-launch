@@ -158,10 +158,10 @@ function Index() {
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Button size="lg" onClick={() => setQuizOpen(true)} className="text-base">
                 <Sparkles className="mr-1.5 h-4 w-4" />
-                Check if you can host
+                Check if you can host quiz
               </Button>
               <Button size="lg" variant="outline" asChild className="text-base">
-                <a href="#book">Book a call — €149</a>
+                <a href="#book">Book a call</a>
               </Button>
             </div>
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
