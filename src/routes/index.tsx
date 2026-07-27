@@ -125,11 +125,19 @@ function Index() {
           <a href="/" className="font-heading text-xl font-bold text-foreground">
             Hosting in Amsterdam
           </a>
-          <Button asChild>
-            <a href="#book">Book a call</a>
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="ghost" onClick={() => setQuizOpen(true)} className="hidden sm:inline-flex">
+              <Sparkles className="mr-1.5 h-4 w-4" />
+              Check if you can host
+            </Button>
+            <Button asChild>
+              <a href="#book">Book a call</a>
+            </Button>
+          </div>
         </div>
       </header>
+
+      <HostingQuiz open={quizOpen} onOpenChange={setQuizOpen} />
 
       <main>
         {/* Hero — split screen */}
