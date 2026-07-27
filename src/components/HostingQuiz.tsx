@@ -178,60 +178,25 @@ function computeResult(answers: Answers): {
   };
 }
 
-function buildTallyUrl(answers: Answers, resultHeadline: string): string {
-  const params = new URLSearchParams({
-    result: resultHeadline,
-    ownership: answers.ownership ?? "",
-    permission: answers.permission ?? "",
-    mortgage: answers.mortgage ?? "",
-    hosting_type: answers.hosting_type ?? "",
-    bnb_checked: answers.bnb_checked ?? "",
-    vve_checked: answers.vve_checked ?? "",
-    insurance_checked: answers.insurance_checked ?? "",
-    transparentBackground: "1",
-    hideTitle: "1",
-  });
-  return `https://tally.so/embed/${TALLY_FORM_ID}?${params.toString()}`;
-}
-
 type Props = { open: boolean; onOpenChange: (open: boolean) => void };
 
 export function HostingQuiz({ open, onOpenChange }: Props) {
   const [answers, setAnswers] = useState<Answers>({});
   const [stepIndex, setStepIndex] = useState(0);
-  const [phase, setPhase] = useState<"quiz" | "form" | "result">("quiz");
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [phase, setPhase] = useState<"quiz" | "result">("quiz");
 
   const steps = useMemo(() => buildSteps(answers), [answers]);
   const currentStep = steps[stepIndex];
   const result = useMemo(() => computeResult(answers), [answers]);
-  const tallyUrl = useMemo(() => buildTallyUrl(answers, result.headline), [answers, result.headline]);
-  const tallyConfigured = TALLY_FORM_ID !== "REPLACE_ME" && TALLY_FORM_ID.length > 0;
-
-  // Listen for Tally submit postMessage
-  useMemo(() => {
-    if (typeof window === "undefined") return;
-    const handler = (event: MessageEvent) => {
-      if (typeof event.data !== "string") return;
-      if (event.data.includes("Tally.FormSubmitted")) {
-        setFormSubmitted(true);
-        setPhase("result");
-      }
-    };
-    window.addEventListener("message", handler);
-    return () => window.removeEventListener("message", handler);
-  }, []);
 
   const reset = () => {
     setAnswers({});
     setStepIndex(0);
     setPhase("quiz");
-    setFormSubmitted(false);
   };
 
   const handleOpenChange = (next: boolean) => {
     if (!next) {
-      // small delay so users don't see reset flash
       setTimeout(reset, 200);
     }
     onOpenChange(next);
@@ -242,7 +207,7 @@ export function HostingQuiz({ open, onOpenChange }: Props) {
     setAnswers(nextAnswers);
     const nextSteps = buildSteps(nextAnswers);
     if (stepIndex + 1 >= nextSteps.length) {
-      setPhase("form");
+      setPhase("result");
     } else {
       setStepIndex(stepIndex + 1);
     }
@@ -250,10 +215,6 @@ export function HostingQuiz({ open, onOpenChange }: Props) {
 
   const goBack = () => {
     if (phase === "result") {
-      setPhase("form");
-      return;
-    }
-    if (phase === "form") {
       setPhase("quiz");
       setStepIndex(steps.length - 1);
       return;
@@ -262,11 +223,7 @@ export function HostingQuiz({ open, onOpenChange }: Props) {
   };
 
   const progress =
-    phase === "quiz"
-      ? ((stepIndex + 1) / (steps.length + 1)) * 100
-      : phase === "form"
-        ? 90
-        : 100;
+    phase === "quiz" ? ((stepIndex + 1) / (steps.length + 1)) * 100 : 100;
 
   const toneClasses =
     result.tone === "green"
