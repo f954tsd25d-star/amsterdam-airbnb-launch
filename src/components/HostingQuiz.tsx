@@ -12,8 +12,8 @@ import { Check, ArrowLeft, ArrowRight, ExternalLink, Calendar, Sparkles } from "
  *      Enable "Google Sheets" integration in Tally to auto-save responses.
  *  - CALENDLY_URL: your booking link shown after submission.
  */
-const TALLY_FORM_ID = "REPLACE_ME"; // e.g. "wAbCdE"
-const CALENDLY_URL = "https://calendly.com/your-handle/consultation";
+const TALLY_FORM_ID: string = "REPLACE_ME"; // e.g. "wAbCdE"
+const CALENDLY_URL: string = "https://calendly.com/your-handle/consultation";
 
 const BNB_MAP_URL =
   "https://kaart.amsterdam.nl/vergunningen-bed-breakfast?pk_vid=928740301dba89d71784542844c17ca6";
