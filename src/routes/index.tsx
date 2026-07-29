@@ -16,18 +16,74 @@ import alessiaSpeaking from "@/assets/alessia-speaking.jpg.asset.json";
 import bedroom from "@/assets/bedroom.jpg.asset.json";
 import { HostingQuiz } from "@/components/HostingQuiz";
 
+const PAGE_TITLE = "Airbnb Amsterdam Permit & Hosting Help | 1-Hour Call";
+const PAGE_DESCRIPTION =
+  "Starting an Airbnb in Amsterdam? Get help with your holiday rental permit, KvK registration, taxes and your listing in a friendly 1-hour call with Alessia.";
+
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESCRIPTION },
       {
-        name: "description",
+        name: "keywords",
         content:
-          "Thinking of hosting on Airbnb in Amsterdam? Book a friendly 1-hour call with Alessia and walk away knowing exactly how to get your permit, register, file taxes, and build a listing guests love.",
+          "airbnb amsterdam, airbnb permit amsterdam, vakantieverhuur vergunning amsterdam, hosting guests amsterdam, start an airbnb amsterdam, short stay rules amsterdam",
+      },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: PAGE_TITLE },
+      { name: "twitter:description", content: PAGE_DESCRIPTION },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "Airbnb Amsterdam hosting consultations with Alessia",
+          description: PAGE_DESCRIPTION,
+          areaServed: { "@type": "City", name: "Amsterdam" },
+          email: "alessia@idkelab.com",
+          url: "/",
+          knowsAbout: [
+            "Amsterdam holiday rental permit",
+            "Vakantieverhuur vergunning",
+            "KvK business registration",
+            "Tourist tax and income tax for hosts",
+            "Airbnb listing optimisation",
+          ],
+          makesOffer: {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "1-hour Airbnb Amsterdam hosting consultation",
+              serviceType: "Short-stay rental compliance consultation",
+            },
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+          })),
+        }),
       },
     ],
   }),
 });
+
 
 const benefits = [
   {
