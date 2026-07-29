@@ -181,7 +181,7 @@ function Index() {
           <div className="flex items-center gap-2">
             <Button onClick={() => setQuizOpen(true)} className="hidden sm:inline-flex">
               <Sparkles className="mr-1.5 h-4 w-4" />
-              Are you eligible to be a host in Amsterdam? Take the quiz
+              Are you eligible to host in Amsterdam? Take the quiz
             </Button>
           </div>
         </div>
