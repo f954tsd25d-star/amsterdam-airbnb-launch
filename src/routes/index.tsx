@@ -78,7 +78,7 @@ const faqs = [
   {
     question: "Do I really need a permit to host on Airbnb in Amsterdam?",
     answer:
-      "In most cases, yes. Amsterdam requires a short-stay permit or a B&B permit depending on how you host, plus a 30-night per year cap for regular short-stay. During the call we'll figure out which category you fall into and how to apply.",
+      "Yes. Amsterdam requires a permit whether you rent a spare room or your whole apartment, with regulations that are strictly enforced. During the call we'll figure out which category you fall into and how to apply.",
   },
   {
     question: "Do I need to register a business with the KvK?",
@@ -295,10 +295,10 @@ function Index() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Book a call or send a question
+                Book your call
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Pick a time that works below, or drop me a note if you'd like to chat first.
+                Pick a time that works below and let's go over all your questions
               </p>
             </div>
 
