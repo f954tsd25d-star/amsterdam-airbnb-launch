@@ -12,8 +12,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Check, MapPin, FileCheck2, Receipt, Camera, Building2, Coffee, Heart, Sparkles } from "lucide-react";
-import alessiaSpeaking from "@/assets/alessia-speaking.jpg.asset.json";
-import bedroom from "@/assets/bedroom.jpg.asset.json";
+import alessiaSpeaking from "@/assets/IMG_2061.jpeg";
+import bedroom from "@/assets/IMG_9864.jpeg";
 import { HostingQuiz } from "@/components/HostingQuiz";
 
 const PAGE_TITLE = "Airbnb Amsterdam Permit & Hosting Help | 1-Hour Call";
