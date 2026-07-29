@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Check, MapPin, FileCheck2, Receipt, Camera, Building2, Coffee, Heart, Sparkles } from "lucide-react";
-import livingRoom from "@/assets/living-room.jpg.asset.json";
+import alessiaSpeaking from "@/assets/alessia-speaking.jpg.asset.json";
 import bedroom from "@/assets/bedroom.jpg.asset.json";
 import { HostingQuiz } from "@/components/HostingQuiz";
 
@@ -125,7 +125,7 @@ function Index() {
           <div className="flex items-center gap-2">
             <Button onClick={() => setQuizOpen(true)} className="hidden sm:inline-flex">
               <Sparkles className="mr-1.5 h-4 w-4" />
-              Are you eligible? Take the quiz
+              Are you eligible to be a host in Amsterdam? Take the quiz
             </Button>
           </div>
         </div>
@@ -139,7 +139,7 @@ function Index() {
           <div className="order-2 flex flex-col justify-center lg:order-1">
             <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-secondary/50 px-3 py-1 text-xs font-semibold text-secondary-foreground">
               <Coffee className="h-3.5 w-3.5" />
-              A friendly 1-hour call
+              Book your friendly 1-hour call
             </span>
             <h1 className="mt-6 font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
               Thinking of hosting your home on Airbnb?
@@ -221,8 +221,8 @@ function Index() {
             <div className="order-2 lg:order-1">
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted lg:aspect-auto lg:h-[560px]">
                 <img
-                  src={livingRoom.url}
-                  alt="Sunlit Amsterdam living room with plants, wooden furniture, and a cozy sofa"
+                  src={alessiaSpeaking.url}
+                  alt="Alessia speaking at an event in front of an audience"
                   className="h-full w-full object-cover"
                   width={1920}
                   height={1440}
