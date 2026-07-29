@@ -155,7 +155,7 @@ function Index() {
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Button size="lg" onClick={() => setQuizOpen(true)} className="text-base">
                 <Sparkles className="mr-1.5 h-4 w-4" />
-                Check if you can host quiz
+                Check if you can host (2 mins quiz)
               </Button>
               <Button size="lg" variant="outline" asChild className="text-base">
                 <a href="#book">Book a call</a>
