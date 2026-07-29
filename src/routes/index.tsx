@@ -198,7 +198,7 @@ function Index() {
               Book your friendly 1-hour call
             </span>
             <h1 className="mt-6 font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              Thinking of hosting your home on Airbnb?
+              Thinking of hosting guests on Airbnb in Amsterdam?
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
               Amsterdam has a lot of rules, and Google doesn't always help. Hop on a
@@ -278,7 +278,7 @@ function Index() {
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted lg:aspect-auto lg:h-[560px]">
                 <img
                   src={alessiaSpeaking.url}
-                  alt="Alessia speaking at an event in front of an audience"
+                  alt="Alessia, Airbnb Amsterdam hosting consultant, speaking to an audience"
                   className="h-full w-full object-cover"
                   width={1920}
                   height={1440}
