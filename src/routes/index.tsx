@@ -70,7 +70,7 @@ const steps = [
   {
     step: "03",
     title: "Leave with a clear plan",
-    description: "A step-by-step checklist you can actually follow, plus a week of email follow-up.",
+    description: "A step-by-step checklist you can actually follow, plus 4 weeks of email follow-up to answer any additional questions.",
   },
 ];
 
@@ -121,14 +121,11 @@ function Index() {
     <div className="min-h-screen bg-background">
       {/* Navigation */}
       <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <a href="/" className="font-heading text-xl font-bold text-foreground">
-            Hosting in Amsterdam
-          </a>
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-end px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2">
-            <Button variant="ghost" onClick={() => setQuizOpen(true)} className="hidden sm:inline-flex">
+            <Button onClick={() => setQuizOpen(true)} className="hidden sm:inline-flex">
               <Sparkles className="mr-1.5 h-4 w-4" />
-              Can you host? (quiz)
+              Are you eligible? Take the quiz
             </Button>
           </div>
         </div>
@@ -172,15 +169,15 @@ function Index() {
               </li>
               <li className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-sage" />
-                A week of email follow-up
+                4 weeks of email follow-up
               </li>
             </ul>
           </div>
           <div className="order-1 lg:order-2">
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted lg:aspect-auto lg:h-[600px]">
               <img
-                src={livingRoom.url}
-                alt="Sunlit Amsterdam living room with plants, wooden furniture, and a cozy sofa"
+                src={bedroom.url}
+                alt="Cozy Amsterdam bedroom with green bedding, artwork, and warm afternoon light"
                 className="h-full w-full object-cover"
                 width={1920}
                 height={1440}
@@ -224,8 +221,8 @@ function Index() {
             <div className="order-2 lg:order-1">
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted lg:aspect-auto lg:h-[560px]">
                 <img
-                  src={bedroom.url}
-                  alt="Cozy Amsterdam bedroom with green bedding, artwork, and warm afternoon light"
+                  src={livingRoom.url}
+                  alt="Sunlit Amsterdam living room with plants, wooden furniture, and a cozy sofa"
                   className="h-full w-full object-cover"
                   width={1920}
                   height={1440}
