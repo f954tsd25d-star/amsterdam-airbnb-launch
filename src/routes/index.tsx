@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Check, MapPin, FileCheck2, Receipt, Camera, Building2, Coffee, Heart, Sparkles } from "lucide-react";
+import alessiaSpeaking from "@/assets/alessia-speaking.jpg.asset.json";
 import bedroom from "@/assets/bedroom.jpg.asset.json";
 import { HostingQuiz } from "@/components/HostingQuiz";
 
@@ -276,7 +277,7 @@ function Index() {
             <div className="order-2 lg:order-1">
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted lg:aspect-auto lg:h-[560px]">
                 <img
-                  src={IMG_2061.jpeg}
+                  src={alessiaSpeaking.url}
                   alt="Alessia, Airbnb Amsterdam hosting consultant, speaking to an audience"
                   className="h-full w-full object-cover"
                   width={1920}
