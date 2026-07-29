@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Check, MapPin, FileCheck2, Receipt, Camera, Building2, Coffee, Heart, Sparkles } from "lucide-react";
+import bedroom from "@/assets/bedroom.jpg.asset.json";
 import { HostingQuiz } from "@/components/HostingQuiz";
 
 const PAGE_TITLE = "Airbnb Amsterdam Permit & Hosting Help | 1-Hour Call";
@@ -230,7 +231,7 @@ function Index() {
           <div className="order-1 lg:order-2">
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted lg:aspect-auto lg:h-[600px]">
               <img
-                src={IMG_9864.jpeg}
+                src={bedroom.url}
                 alt="Cozy Amsterdam bedroom with green bedding, artwork, and warm afternoon light"
                 className="h-full w-full object-cover"
                 width={1920}
