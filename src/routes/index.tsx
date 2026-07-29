@@ -277,7 +277,7 @@ function Index() {
             <div className="order-2 lg:order-1">
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted lg:aspect-auto lg:h-[560px]">
                 <img
-                  src={alessiaSpeaking.url}
+                  src={IMG_2061.jpeg}
                   alt="Alessia, Airbnb Amsterdam hosting consultant, speaking to an audience"
                   className="h-full w-full object-cover"
                   width={1920}
