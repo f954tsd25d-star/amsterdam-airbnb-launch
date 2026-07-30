@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Check, MapPin, FileCheck2, Receipt, Camera, Building2, Coffee, Heart, Sparkles } from "lucide-react";
-import alessiaSpeaking from "@/assets/speaking.JPG";
+import alessiaSpeaking from "@/assets/alessia-speaking.jpg";
 import bedroom from "@/assets/bedroom.jpeg";
 import { HostingQuiz } from "@/components/HostingQuiz";
 
