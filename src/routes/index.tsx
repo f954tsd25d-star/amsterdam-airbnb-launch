@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Check, MapPin, FileCheck2, Receipt, Camera, Building2, Coffee, Heart, Sparkles } from "lucide-react";
-import alessiaSpeaking from "@/assets/speaking.JPG";
+import alessiaSpeaking from "@/assets/alessia-speaking.jpg";
 import bedroom from "@/assets/bedroom.jpeg";
 import { HostingQuiz } from "@/components/HostingQuiz";
 
@@ -177,7 +177,10 @@ function Index() {
     <div className="min-h-screen bg-background">
       {/* Navigation */}
       <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-end px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+          <a href="/" className="font-heading text-lg font-bold text-foreground hover:text-foreground/80">
+            Host in Amsterdam
+          </a>
           <div className="flex items-center gap-2">
             <Button onClick={() => setQuizOpen(true)} className="hidden sm:inline-flex">
               <Sparkles className="mr-1.5 h-4 w-4" />
