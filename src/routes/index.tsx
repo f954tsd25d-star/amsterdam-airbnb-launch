@@ -193,55 +193,51 @@ function Index() {
       <HostingQuiz open={quizOpen} onOpenChange={setQuizOpen} />
 
       <main>
-        {/* Hero — split screen */}
-        <section className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-24">
-          <div className="order-2 flex flex-col justify-center lg:order-1">
-            <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-secondary/50 px-3 py-1 text-xs font-semibold text-secondary-foreground">
-              <Coffee className="h-3.5 w-3.5" />
-              Book your friendly 1-hour call
-            </span>
-            <h1 className="mt-6 font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              Thinking of hosting guests on Airbnb in Amsterdam?
-            </h1>
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-              Amsterdam has a lot of rules, and Google doesn't always help. Hop on a
-              relaxed 1-hour call with me and we'll figure out your permit, taxes,
-              and listing together — no jargon, no pressure.
-            </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button size="lg" onClick={() => setQuizOpen(true)} className="text-base">
-                <Sparkles className="mr-1.5 h-4 w-4" />
-                Check if you can host (2 mins quiz)
-              </Button>
-              <Button size="lg" variant="outline" asChild className="text-base">
-                <a href="#book">Book a call</a>
-              </Button>
-            </div>
-            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <Check className="h-4 w-4 text-sage" />
-                First-time hosts welcome
-              </li>
-              <li className="flex items-center gap-2">
-                <Check className="h-4 w-4 text-sage" />
-                Step-by-step checklist
-              </li>
-              <li className="flex items-center gap-2">
-                <Check className="h-4 w-4 text-sage" />
-                4 weeks of email follow-up
-              </li>
-            </ul>
+        {/* Hero — single column */}
+        <section className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 lg:px-8 lg:py-24">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary/50 px-3 py-1 text-xs font-semibold text-secondary-foreground">
+            <Coffee className="h-3.5 w-3.5" />
+            Book your friendly 1-hour call
+          </span>
+          <h1 className="mt-6 font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            Thinking of hosting guests on Airbnb in Amsterdam?
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            Amsterdam has a lot of rules, and Google doesn't always help. Hop on a
+            relaxed 1-hour call with me and we'll figure out your permit, taxes,
+            and listing together — no jargon, no pressure.
+          </p>
+          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <Button size="lg" onClick={() => setQuizOpen(true)} className="text-base">
+              <Sparkles className="mr-1.5 h-4 w-4" />
+              Check if you can host (2 mins quiz)
+            </Button>
+            <Button size="lg" variant="outline" asChild className="text-base">
+              <a href="#book">Book a call</a>
+            </Button>
           </div>
-          <div className="order-1 lg:order-2">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted lg:aspect-auto lg:h-[600px]">
-              <img
-                src={bedroom}
-                alt="Cozy Amsterdam bedroom with green bedding, artwork, and warm afternoon light"
-                className="h-full w-full object-cover"
-                width={1920}
-                height={1440}
-              />
-            </div>
+          <ul className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            <li className="flex items-center gap-2">
+              <Check className="h-4 w-4 text-lime" />
+              First-time hosts welcome
+            </li>
+            <li className="flex items-center gap-2">
+              <Check className="h-4 w-4 text-lime" />
+              Step-by-step checklist
+            </li>
+            <li className="flex items-center gap-2">
+              <Check className="h-4 w-4 text-lime" />
+              4 weeks of email follow-up
+            </li>
+          </ul>
+          <div className="relative mt-12 aspect-[4/3] overflow-hidden rounded-2xl bg-muted">
+            <img
+              src={bedroom}
+              alt="Cozy Amsterdam bedroom with green bedding, artwork, and warm afternoon light"
+              className="h-full w-full object-cover"
+              width={1920}
+              height={1440}
+            />
           </div>
         </section>
 
