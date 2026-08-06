@@ -227,9 +227,9 @@ export function HostingQuiz({ open, onOpenChange }: Props) {
 
   const toneClasses =
     result.tone === "green"
-      ? "bg-sage/15 text-forest"
+      ? "bg-lime/20 text-blue"
       : result.tone === "amber"
-        ? "bg-terracotta/15 text-terracotta"
+        ? "bg-yellow/30 text-black"
         : "bg-secondary/60 text-secondary-foreground";
 
   return (
