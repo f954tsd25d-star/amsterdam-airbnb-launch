@@ -294,14 +294,14 @@ export function HostingQuiz({ open, onOpenChange }: Props) {
                       }
                       className={`group flex min-h-14 items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left text-base transition ${
                         selected
-                          ? "border-terracotta bg-terracotta/10 text-foreground"
-                          : "border-border bg-card text-foreground hover:border-terracotta hover:bg-terracotta/5"
+                          ? "border-blue bg-blue/10 text-foreground"
+                          : "border-border bg-card text-foreground hover:border-blue hover:bg-blue/5"
                       }`}
                     >
                       <span className="font-medium">{choice.label}</span>
                       <ArrowRight
                         className={`h-4 w-4 shrink-0 transition ${
-                          selected ? "text-terracotta" : "text-muted-foreground group-hover:text-terracotta"
+                          selected ? "text-blue" : "text-muted-foreground group-hover:text-blue"
                         }`}
                       />
                     </button>
