@@ -324,7 +324,7 @@ function Index() {
             <div className="mt-12 grid gap-8 sm:grid-cols-3">
               {steps.map((item) => (
                 <div key={item.step} className="relative text-center">
-                  <span className="font-heading text-6xl font-extrabold text-blue/20">
+                  <span className="font-heading text-6xl font-extrabold text-blue/40">
                     {item.step}
                   </span>
                   <h3 className="mt-2 font-heading text-xl font-semibold text-foreground">
