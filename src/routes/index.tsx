@@ -126,7 +126,8 @@ const steps = [
   {
     step: "03",
     title: "Leave with a clear plan",
-    description: "A step-by-step checklist you can actually follow, plus 4 weeks of email follow-up to answer any additional questions.",
+    description:
+      "A step-by-step checklist you can actually follow, an in-depth PDF guide covering every topic in depth, plus 4 weeks of email follow-up to answer any additional questions.",
   },
 ];
 
@@ -197,7 +198,7 @@ function Index() {
         <section className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 lg:px-8 lg:py-24">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary/50 px-3 py-1 text-xs font-semibold text-secondary-foreground">
             <Coffee className="h-3.5 w-3.5" />
-            Book your friendly 1-hour call
+            Book your friendly 1-hour call — €129
           </span>
           <h1 className="mt-6 font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             Thinking of hosting guests on Airbnb in Amsterdam?
@@ -306,7 +307,7 @@ function Index() {
             </div>
             <div className="mt-8">
               <Button size="lg" asChild>
-                <a href="#book">Book a call with me</a>
+                <a href="#book">Book a call with me — €129</a>
               </Button>
             </div>
           </div>
@@ -318,19 +319,19 @@ function Index() {
             <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               How it works
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/80">
               Three simple steps — no forms to fill out before we even talk.
             </p>
             <div className="mt-12 grid gap-8 sm:grid-cols-3">
               {steps.map((item) => (
                 <div key={item.step} className="relative text-center">
-                  <span className="font-heading text-6xl font-extrabold text-blue/40">
+                  <span className="font-heading text-6xl font-extrabold text-white/80">
                     {item.step}
                   </span>
                   <h3 className="mt-2 font-heading text-xl font-semibold text-foreground">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-muted-foreground">{item.description}</p>
+                  <p className="mt-2 text-foreground/80">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -342,10 +343,10 @@ function Index() {
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Book your call
+                Book your call — €129
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-                Pick a time that works below and let's go over all your questions
+                Pick a time that works below. One hour, your questions answered, and an in-depth PDF guide sent to your inbox.
               </p>
             </div>
 
@@ -446,7 +447,7 @@ function Index() {
               <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 Questions people usually ask
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+              <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground">
                 And if yours isn't here — just ask on the form above.
               </p>
             </div>
@@ -456,7 +457,7 @@ function Index() {
                   <AccordionTrigger className="font-heading text-left text-base font-semibold">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-base leading-relaxed text-muted-foreground">
+                  <AccordionContent className="text-base leading-relaxed text-foreground">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -472,8 +473,8 @@ function Index() {
               Let's make hosting feel simple
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/80">
-              One hour, one clear plan, and someone in your corner. Book a call and we'll take
-              it from there.
+              One hour, one clear plan, an in-depth PDF guide, and someone in your corner.
+              Book a call and we'll take it from there.
             </p>
             <Button
               size="lg"
@@ -481,7 +482,7 @@ function Index() {
               asChild
               className="mt-8 border-foreground bg-transparent text-foreground hover:bg-foreground/10 hover:text-foreground"
             >
-              <a href="#book">Book your call</a>
+              <a href="#book">Book your call — €129</a>
             </Button>
           </div>
         </section>

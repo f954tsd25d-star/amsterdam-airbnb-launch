@@ -353,7 +353,7 @@ export function HostingQuiz({ open, onOpenChange }: Props) {
                   Want help with the next steps?
                 </p>
                 <p className="mt-1 text-sm text-muted-foreground text-center">
-                  Book a friendly 1-hour call — we'll go through your checklist together.
+                  Book a friendly 1-hour call for €129 — we'll go through your checklist together and you'll receive an in-depth PDF guide covering every topic in depth.
                 </p>
                 <div className="mt-4 overflow-hidden rounded-xl border border-border/60 bg-background">
                   <iframe
