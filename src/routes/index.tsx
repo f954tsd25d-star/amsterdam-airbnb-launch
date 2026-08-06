@@ -13,7 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Check, MapPin, FileCheck2, Receipt, Camera, Building2, Coffee, Heart, Sparkles } from "lucide-react";
 import alessiaSpeaking from "@/assets/alessia-speaking.jpg";
-import bedroom from "@/assets/bedroom.jpeg";
+import bedroom from "@/assets/bedroom.jpg";
 import { HostingQuiz } from "@/components/HostingQuiz";
 
 const PAGE_TITLE = "Airbnb Amsterdam Permit & Hosting Help | 1-Hour Call";
@@ -193,75 +193,69 @@ function Index() {
       <HostingQuiz open={quizOpen} onOpenChange={setQuizOpen} />
 
       <main>
-        {/* Hero — split screen */}
-        <section className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-24">
-          <div className="order-2 flex flex-col justify-center lg:order-1">
-            <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-secondary/50 px-3 py-1 text-xs font-semibold text-secondary-foreground">
-              <Coffee className="h-3.5 w-3.5" />
-              Book your friendly 1-hour call
-            </span>
-            <h1 className="mt-6 font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              Thinking of hosting guests on Airbnb in Amsterdam?
-            </h1>
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-              Amsterdam has a lot of rules, and Google doesn't always help. Hop on a
-              relaxed 1-hour call with me and we'll figure out your permit, taxes,
-              and listing together — no jargon, no pressure.
-            </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button size="lg" onClick={() => setQuizOpen(true)} className="text-base">
-                <Sparkles className="mr-1.5 h-4 w-4" />
-                Check if you can host (2 mins quiz)
-              </Button>
-              <Button size="lg" variant="outline" asChild className="text-base">
-                <a href="#book">Book a call</a>
-              </Button>
-            </div>
-            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <Check className="h-4 w-4 text-sage" />
-                First-time hosts welcome
-              </li>
-              <li className="flex items-center gap-2">
-                <Check className="h-4 w-4 text-sage" />
-                Step-by-step checklist
-              </li>
-              <li className="flex items-center gap-2">
-                <Check className="h-4 w-4 text-sage" />
-                4 weeks of email follow-up
-              </li>
-            </ul>
+        {/* Hero — single column */}
+        <section className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 lg:px-8 lg:py-24">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary/50 px-3 py-1 text-xs font-semibold text-secondary-foreground">
+            <Coffee className="h-3.5 w-3.5" />
+            Book your friendly 1-hour call
+          </span>
+          <h1 className="mt-6 font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            Thinking of hosting guests on Airbnb in Amsterdam?
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            Amsterdam has a lot of rules, and Google doesn't always help. Hop on a
+            relaxed 1-hour call with me and we'll figure out your permit, taxes,
+            and listing together — no jargon, no pressure.
+          </p>
+          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <Button size="lg" onClick={() => setQuizOpen(true)} className="text-base">
+              <Sparkles className="mr-1.5 h-4 w-4" />
+              Check if you can host (2 mins quiz)
+            </Button>
+            <Button size="lg" variant="outline" asChild className="text-base">
+              <a href="#book">Book a call</a>
+            </Button>
           </div>
-          <div className="order-1 lg:order-2">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted lg:aspect-auto lg:h-[600px]">
-              <img
-                src={bedroom}
-                alt="Cozy Amsterdam bedroom with green bedding, artwork, and warm afternoon light"
-                className="h-full w-full object-cover"
-                width={1920}
-                height={1440}
-              />
-            </div>
+          <ul className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            <li className="flex items-center gap-2">
+              <Check className="h-4 w-4 text-lime" />
+              First-time hosts welcome
+            </li>
+            <li className="flex items-center gap-2">
+              <Check className="h-4 w-4 text-lime" />
+              Step-by-step checklist
+            </li>
+            <li className="flex items-center gap-2">
+              <Check className="h-4 w-4 text-lime" />
+              4 weeks of email follow-up
+            </li>
+          </ul>
+          <div className="relative mt-12 aspect-[4/3] overflow-hidden rounded-2xl bg-muted">
+            <img
+              src={bedroom}
+              alt="Cozy Amsterdam bedroom with green bedding, artwork, and warm afternoon light"
+              className="h-full w-full object-cover"
+              width={1920}
+              height={1440}
+            />
           </div>
         </section>
 
         {/* Benefits */}
-        <section className="border-t border-border/50 bg-muted/30 py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                The four things every new host worries about
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                We'll cover exactly these in our call — tailored to your home and your situation.
-              </p>
-            </div>
+        <section className="border-y border-border/50 bg-lime py-16 lg:py-24">
+          <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+            <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              The four things every new host worries about
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+              We'll cover exactly these in our call — tailored to your home and your situation.
+            </p>
             <div className="mt-12 grid gap-6 sm:grid-cols-2">
               {benefits.map((benefit) => (
-                <Card key={benefit.title} className="border-border/60 bg-card">
+                <Card key={benefit.title} className="border-border/60 bg-card text-left">
                   <CardHeader>
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary/60">
-                      <benefit.icon className="h-5 w-5 text-forest" />
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-yellow/30">
+                      <benefit.icon className="h-5 w-5 text-blue" />
                     </div>
                     <CardTitle className="mt-4 font-heading text-xl">{benefit.title}</CardTitle>
                     <CardDescription className="text-base leading-relaxed">
@@ -276,67 +270,61 @@ function Index() {
 
         {/* About Alessia */}
         <section id="about" className="py-16 lg:py-24">
-          <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
-            <div className="order-2 lg:order-1">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted lg:aspect-auto lg:h-[560px]">
-                <img
-                  src={alessiaSpeaking}
-                  alt="Alessia, Airbnb Amsterdam hosting consultant, speaking to an audience"
-                  className="h-full w-full object-cover"
-                  width={1920}
-                  height={1440}
-                />
-              </div>
+          <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+            <div className="relative mx-auto aspect-[4/3] max-w-2xl overflow-hidden rounded-2xl bg-muted">
+              <img
+                src={alessiaSpeaking}
+                alt="Alessia, Airbnb Amsterdam hosting consultant, speaking to an audience"
+                className="h-full w-full object-cover"
+                width={1920}
+                height={1440}
+              />
             </div>
-            <div className="order-1 lg:order-2">
-              <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-secondary/50 px-3 py-1 text-xs font-semibold text-secondary-foreground">
-                <Heart className="h-3.5 w-3.5" />
-                Hi, I'm Alessia
-              </span>
-              <h2 className="mt-6 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                A friendly guide who's been through it
-              </h2>
-              <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
-                <p>
-                  I'm Italian and I've been lucky enough to live in a lot of places. I studied
-                  design in New York, built a publishing house in the US, and ran a startup
-                  incubator in Nigeria — bootstrapping most of the way.
-                </p>
-                <p>
-                  I love to create — through work, food, color, dance, or music. I love
-                  learning, meeting new people, and exploring new places. And I equally love
-                  a cozy evening at home.
-                </p>
-                <p>
-                  These days I work a chill job that gives me space to play around and build
-                  the next thing. Helping first-time hosts in Amsterdam get set up — without
-                  the overwhelm — is one of the things I genuinely enjoy.
-                </p>
-              </div>
-              <div className="mt-8">
-                <Button size="lg" asChild>
-                  <a href="#book">Book a call with me</a>
-                </Button>
-              </div>
+            <span className="mt-12 inline-flex items-center gap-1.5 rounded-full bg-secondary/50 px-3 py-1 text-xs font-semibold text-secondary-foreground">
+              <Heart className="h-3.5 w-3.5" />
+              Hi, I'm Alessia
+            </span>
+            <h2 className="mt-6 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              A friendly guide who's been through it
+            </h2>
+            <div className="mx-auto mt-6 max-w-2xl space-y-4 text-left text-lg leading-relaxed text-muted-foreground">
+              <p>
+                I'm Italian and I've been lucky enough to live in a lot of places. I studied
+                design in New York, built a publishing house in the US, and ran a startup
+                incubator in Nigeria — bootstrapping most of the way.
+              </p>
+              <p>
+                I love to create — through work, food, color, dance, or music. I love
+                learning, meeting new people, and exploring new places. And I equally love
+                a cozy evening at home.
+              </p>
+              <p>
+                These days I work a chill job that gives me space to play around and build
+                the next thing. Helping first-time hosts in Amsterdam get set up — without
+                the overwhelm — is one of the things I genuinely enjoy.
+              </p>
+            </div>
+            <div className="mt-8">
+              <Button size="lg" asChild>
+                <a href="#book">Book a call with me</a>
+              </Button>
             </div>
           </div>
         </section>
 
         {/* How it works */}
-        <section id="how-it-works" className="border-t border-border/50 bg-muted/30 py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                How it works
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Three simple steps — no forms to fill out before we even talk.
-              </p>
-            </div>
+        <section id="how-it-works" className="border-y border-border/50 bg-yellow py-16 lg:py-24">
+          <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+            <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              How it works
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+              Three simple steps — no forms to fill out before we even talk.
+            </p>
             <div className="mt-12 grid gap-8 sm:grid-cols-3">
               {steps.map((item) => (
                 <div key={item.step} className="relative text-center">
-                  <span className="font-heading text-6xl font-extrabold text-terracotta/20">
+                  <span className="font-heading text-6xl font-extrabold text-blue/40">
                     {item.step}
                   </span>
                   <h3 className="mt-2 font-heading text-xl font-semibold text-foreground">
@@ -351,31 +339,29 @@ function Index() {
 
         {/* Booking + Inquiries */}
         <section id="book" className="py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
               <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 Book your call
               </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
+              <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
                 Pick a time that works below and let's go over all your questions
               </p>
             </div>
 
-            <div className="mt-12 grid gap-10 lg:grid-cols-5 lg:items-start">
+            <div className="mt-12 space-y-10">
               {/* Calendly embed */}
-              <div className="lg:col-span-3">
-                <div className="overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
-                  <iframe
-                    src="https://calendly.com/idke/30min?hide_gdpr_banner=1"
-                    title="Book a call with Alessia"
-                    loading="lazy"
-                    className="h-[720px] w-full"
-                  />
-                </div>
+              <div className="overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
+                <iframe
+                  src="https://calendly.com/idke/30min?hide_gdpr_banner=1"
+                  title="Book a call with Alessia"
+                  loading="lazy"
+                  className="h-[720px] w-full"
+                />
               </div>
 
               {/* Inquiries form */}
-              <div className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm sm:p-8 lg:col-span-2">
+              <div className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm sm:p-8">
                 <h3 className="font-heading text-2xl font-bold text-foreground">
                   Have a question first?
                 </h3>
@@ -384,8 +370,8 @@ function Index() {
                 </p>
                 {submitted ? (
                   <div className="mt-8 rounded-xl bg-secondary/40 p-6 text-center">
-                    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-sage/20">
-                      <Check className="h-6 w-6 text-forest" />
+                    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-lime/30">
+                      <Check className="h-6 w-6 text-blue" />
                     </div>
                     <h4 className="mt-4 font-heading text-lg font-semibold text-foreground">
                       Got it — thank you!
@@ -454,13 +440,13 @@ function Index() {
         </section>
 
         {/* FAQ */}
-        <section className="border-t border-border/50 bg-muted/30 py-16 lg:py-24">
+        <section className="border-y border-border/50 bg-lime py-16 lg:py-24">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 Questions people usually ask
               </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
+              <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
                 And if yours isn't here — just ask on the form above.
               </p>
             </div>
@@ -480,12 +466,12 @@ function Index() {
         </section>
 
         {/* Final CTA */}
-        <section className="bg-terracotta py-16 text-primary-foreground lg:py-24">
+        <section className="bg-yellow py-16 text-primary-foreground lg:py-24">
           <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-            <h2 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Let's make hosting feel simple
             </h2>
-            <p className="mt-4 text-lg text-primary-foreground/90">
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/80">
               One hour, one clear plan, and someone in your corner. Book a call and we'll take
               it from there.
             </p>
@@ -493,7 +479,7 @@ function Index() {
               size="lg"
               variant="outline"
               asChild
-              className="mt-8 border-cream bg-transparent text-cream hover:bg-cream/10 hover:text-cream"
+              className="mt-8 border-foreground bg-transparent text-foreground hover:bg-foreground/10 hover:text-foreground"
             >
               <a href="#book">Book your call</a>
             </Button>
@@ -506,7 +492,7 @@ function Index() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Hosting in Amsterdam — made with{" "}
+              © {new Date().getFullYear()} Host in Amsterdam — made with{" "}
               <MapPin className="inline h-3.5 w-3.5" /> by Alessia.
             </p>
             <div className="flex items-center gap-6 text-sm text-muted-foreground">

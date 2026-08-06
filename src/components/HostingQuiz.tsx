@@ -227,9 +227,9 @@ export function HostingQuiz({ open, onOpenChange }: Props) {
 
   const toneClasses =
     result.tone === "green"
-      ? "bg-sage/15 text-forest"
+      ? "bg-lime/20 text-blue"
       : result.tone === "amber"
-        ? "bg-terracotta/15 text-terracotta"
+        ? "bg-yellow/30 text-black"
         : "bg-secondary/60 text-secondary-foreground";
 
   return (
@@ -294,14 +294,14 @@ export function HostingQuiz({ open, onOpenChange }: Props) {
                       }
                       className={`group flex min-h-14 items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left text-base transition ${
                         selected
-                          ? "border-terracotta bg-terracotta/10 text-foreground"
-                          : "border-border bg-card text-foreground hover:border-terracotta hover:bg-terracotta/5"
+                          ? "border-blue bg-blue/10 text-foreground"
+                          : "border-border bg-card text-foreground hover:border-blue hover:bg-blue/5"
                       }`}
                     >
                       <span className="font-medium">{choice.label}</span>
                       <ArrowRight
                         className={`h-4 w-4 shrink-0 transition ${
-                          selected ? "text-terracotta" : "text-muted-foreground group-hover:text-terracotta"
+                          selected ? "text-blue" : "text-muted-foreground group-hover:text-blue"
                         }`}
                       />
                     </button>
@@ -333,7 +333,7 @@ export function HostingQuiz({ open, onOpenChange }: Props) {
                     >
                       <span
                         className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
-                          item.done ? "bg-sage/25 text-forest" : "border border-border bg-background text-muted-foreground"
+                          item.done ? "bg-lime/30 text-blue" : "border border-border bg-background text-muted-foreground"
                         }`}
                       >
                         {item.done ? <Check className="h-3.5 w-3.5" /> : <span className="text-xs">•</span>}
