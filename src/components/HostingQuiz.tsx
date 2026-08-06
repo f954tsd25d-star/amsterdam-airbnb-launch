@@ -333,7 +333,7 @@ export function HostingQuiz({ open, onOpenChange }: Props) {
                     >
                       <span
                         className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
-                          item.done ? "bg-sage/25 text-forest" : "border border-border bg-background text-muted-foreground"
+                          item.done ? "bg-lime/30 text-blue" : "border border-border bg-background text-muted-foreground"
                         }`}
                       >
                         {item.done ? <Check className="h-3.5 w-3.5" /> : <span className="text-xs">•</span>}
